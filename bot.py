@@ -102,8 +102,13 @@ async def attackpoints(ctx):
 @bot.command(pass_context=True)
 async def assignteam(ctx):
     user = ctx.message.author
-    role = ((discord.utils.get(user.server.roles, name="Team Black")), (discord.utils.get(user.server.roles, name="Team White")))
-    await bot.add_roles(user, random.choice(role))
+    if "TEAM WHITE" in [y.name.upper() for y in ctx.message.author.roles]:
+        await bot.say("I'm sorry, you cannot use this command right now!")
+    if "TEAM BLACK" in [y.name.upper() for y in ctx.message.author.roles]:
+        await bot.say("I'm sorry, you cannot use this command right now!")
+    else:
+        role = ((discord.utils.get(user.server.roles, name="Team Black")), (discord.utils.get(user.server.roles, name="Team White")))
+        await bot.add_roles(user, random.choice(role))
 
 
 bot.run("NDYzNzk3MDM4MjI0NTA2OTIw.Dh5fJw.joqORD_VFra55H1L5q23CKKj1VE")
