@@ -62,13 +62,223 @@ async def teamwhite(ctx):
 
 
 #--------------------------------------------------------------------------
+#TEAM ONE ATTACK
+#--------------------------------------------------------------------------
+
+
+@bot.command(pass_context=True)
+async def blackattack(ctx):
+    await bot.say("(Team black) What is your finished piece?\n 1. Head Shot\n 2. Head to Waist\n 3. Full Body")
+
+@bot.command(pass_context=True)
+async def whiteattack(ctx):
+    await bot.say("(Team white) What is your finished piece?\n 1. Head Shot\n 2. Head to Waist\n 3. Full Body")
+
+
+@bot.event
+async def on_message(message):
+    await bot.process_commands(message)
+    if message.content.startswith("(Team black) What is your finished piece?"):
+        await bot.add_reaction(message, emoji="1⃣")
+        await bot.add_reaction(message, emoji="2⃣")
+        await bot.add_reaction(message, emoji="3⃣")
+    if message.content.startswith("(Team black) What type of lines did you use?"):
+        await bot.add_reaction(message, emoji="1⃣")
+        await bot.add_reaction(message, emoji="2⃣")
+        await bot.add_reaction(message, emoji="3⃣")
+    if message.content.startswith("(Team black) How did you color the piece?"):
+        await bot.add_reaction(message, emoji="1⃣")
+        await bot.add_reaction(message, emoji="2⃣")
+        await bot.add_reaction(message, emoji="3⃣")
+
+    if message.content.startswith("(Team white) What type of lines did you use?"):
+        await bot.add_reaction(message, emoji="1⃣")
+        await bot.add_reaction(message, emoji="2⃣")
+        await bot.add_reaction(message, emoji="3⃣")
+    if message.content.startswith("(Team white) What is your finished piece?"):
+        await bot.add_reaction(message, emoji="1⃣")
+        await bot.add_reaction(message, emoji="2⃣")
+        await bot.add_reaction(message, emoji="3⃣")
+    if message.content.startswith("(Team white) How did you color the piece?"):
+        await bot.add_reaction(message, emoji="1⃣")
+        await bot.add_reaction(message, emoji="2⃣")
+        await bot.add_reaction(message, emoji="3⃣")
 
 
 
+@bot.event
+async def on_reaction_add(reaction, user):
+    global atotal
+    global btotal
+    if reaction.message.content.startswith("(Team black) How did you color the piece?"):
 
+        if user.id == "463797038224506920":
+            ...
+        else:
+            if str(reaction.emoji) == ("1⃣"):
+                if atotal == 0:
+                    atotal = float(25)
+                else:
+                    atotal += float(25)
+                await bot.delete_message(reaction.message)
+                await bot.send_message(reaction.message.channel, "You have successfully added points to your team!")
+            if reaction.emoji == ("2⃣"):
+                if atotal == 0:
+                    atotal = float(50)
+                else:
+                    atotal += float(50)
+                await bot.delete_message(reaction.message)
+                await bot.send_message(reaction.message.channel, "You have successfully added points to your team!")
+            if reaction.emoji == ("3⃣"):
+                if atotal == 0:
+                    atotal = float(100)
+                else:
+                    atotal += float(100)
+                await bot.delete_message(reaction.message)
+                await bot.send_message(reaction.message.channel, "You have successfully added points to your team!")
+    if reaction.message.content.startswith("(Team black) What type of lines did you use?"):
 
+        if user.id == "463797038224506920":
+            ...
+        else:
+            if str(reaction.emoji) == ("1⃣"):
+                if atotal == 0:
+                    atotal = float(25)
+                else:
+                    atotal += float(25)
+                await bot.delete_message(reaction.message)
+                await bot.send_message(reaction.message.channel, "(Team black) How did you color the piece?\n "
+                                                                 "1. No Color\n 2. Flat Color\n 3. Shaded Color")
+            if reaction.emoji == ("2⃣"):
+                if atotal == 0:
+                    atotal = float(100)
+                else:
+                    atotal += float(100)
+                await bot.delete_message(reaction.message)
+                await bot.send_message(reaction.message.channel, "(Team black) How did you color the piece?\n "
+                                                                 "1. No Color\n 2. Flat Color\n 3. Shaded Color")
+            if reaction.emoji == ("3⃣"):
+                if atotal == 0:
+                    atotal = float(100)
+                else:
+                    atotal += float(100)
+                await bot.delete_message(reaction.message)
+                await bot.send_message(reaction.message.channel, "(Team black) How did you color the piece?\n "
+                                                                 "1. No Color\n 2. Flat Color\n 3. Shaded Color")
+    if reaction.message.content.startswith("(Team black) What is your finished piece?"):
 
+        if user.id == "463797038224506920":
+            ...
+        else:
+            if str(reaction.emoji) == ("1⃣"):
+                if atotal == 0:
+                    atotal = float(25)
+                else:
+                    atotal += float(25)
+                await bot.delete_message(reaction.message)
+                await bot.send_message(reaction.message.channel, "(Team black) What type of lines did you use?\n "
+                                                                 "1. Sketch\n 2. Clean Lines\n 3. Lineless")
+            if reaction.emoji == ("2⃣"):
+                if atotal == 0:
+                    atotal = float(50)
+                else:
+                    atotal += float(50)
+                await bot.delete_message(reaction.message)
+                await bot.send_message(reaction.message.channel, "(Team black) What type of lines did you use?\n "
+                                                                 "1. Sketch\n 2. Clean Lines\n 3. Lineless")
+            if reaction.emoji == ("3⃣"):
+                if atotal == 0:
+                    atotal = float(100)
+                else:
+                    atotal += float(100)
+                await bot.delete_message(reaction.message)
+                await bot.send_message(reaction.message.channel, "(Team black) What type of lines did you use?\n "
+                                                                 "1. Sketch\n 2. Clean Lines\n 3. Lineless")
 
+    if reaction.message.content.startswith("(Team white) How did you color the piece?"):
+
+        if user.id == "463797038224506920":
+            ...
+        else:
+            if str(reaction.emoji) == ("1⃣"):
+                if btotal == 0:
+                    btotal = float(25)
+                else:
+                    btotal += float(25)
+                await bot.delete_message(reaction.message)
+                await bot.send_message(reaction.message.channel, "You have successfully added points to your team!")
+            if reaction.emoji == ("2⃣"):
+                if btotal == 0:
+                    btotal = float(50)
+                else:
+                    btotal += float(50)
+                await bot.delete_message(reaction.message)
+                await bot.send_message(reaction.message.channel, "You have successfully added points to your team!")
+            if reaction.emoji == ("3⃣"):
+                if btotal == 0:
+                    btotal = float(100)
+                else:
+                    btotal += float(100)
+                await bot.delete_message(reaction.message)
+                await bot.send_message(reaction.message.channel, "You have successfully added points to your team!")
+    if reaction.message.content.startswith("(Team white) What type of lines did you use?"):
+
+        if user.id == "463797038224506920":
+            ...
+        else:
+            if str(reaction.emoji) == ("1⃣"):
+                if btotal == 0:
+                    btotal = float(25)
+                else:
+                    btotal += float(25)
+                await bot.delete_message(reaction.message)
+                await bot.send_message(reaction.message.channel, "(Team white) How did you color the piece?\n "
+                                                                 "1. No Color\n 2. Flat Color\n 3. Shaded Color")
+            if reaction.emoji == ("2⃣"):
+                if btotal == 0:
+                    btotal = float(100)
+                else:
+                    btotal += float(100)
+                await bot.delete_message(reaction.message)
+                await bot.send_message(reaction.message.channel, "(Team white) How did you color the piece?\n "
+                                                                 "1. No Color\n 2. Flat Color\n 3. Shaded Color")
+            if reaction.emoji == ("3⃣"):
+                if btotal == 0:
+                    btotal = float(100)
+                else:
+                    btotal += float(100)
+                await bot.delete_message(reaction.message)
+                await bot.send_message(reaction.message.channel, "(Team white) How did you color the piece?\n "
+                                                                 "1. No Color\n 2. Flat Color\n 3. Shaded Color")
+    if reaction.message.content.startswith("(Team white) What is your finished piece?"):
+
+        if user.id == "463797038224506920":
+            ...
+        else:
+            if str(reaction.emoji) == ("1⃣"):
+                if btotal == 0:
+                    btotal = float(25)
+                else:
+                    btotal += float(25)
+                await bot.delete_message(reaction.message)
+                await bot.send_message(reaction.message.channel, "(Team white) What type of lines did you use?\n "
+                                                                 "1. Sketch\n 2. Clean Lines\n 3. Lineless")
+            if reaction.emoji == ("2⃣"):
+                if btotal == 0:
+                    btotal = float(50)
+                else:
+                    btotal += float(50)
+                await bot.delete_message(reaction.message)
+                await bot.send_message(reaction.message.channel, "(Team white) What type of lines did you use?\n "
+                                                                 "1. Sketch\n 2. Clean Lines\n 3. Lineless")
+            if reaction.emoji == ("3⃣"):
+                if btotal == 0:
+                    btotal = float(100)
+                else:
+                    btotal += float(100)
+                await bot.delete_message(reaction.message)
+                await bot.send_message(reaction.message.channel, "(Team white) What type of lines did you use?\n "
+                                                                 "1. Sketch\n 2. Clean Lines\n 3. Lineless")
 
 
 
