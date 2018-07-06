@@ -21,15 +21,7 @@ async def on_member_join(member):
 atotal = float(0)
 
 
-#AWARDS POINTS FOR TEAM 1
-@bot.command(pass_context=True)
-async def blackadd(ctx, arg):
-        await bot.say("Added " + (arg) + " point(s) to team black!")
-        global atotal
-        if atotal == 0:
-            atotal = float(arg)
-        else:
-            atotal += float(arg)
+
 
 #SHOWS POINTS OF TEAM 1
 @bot.command(pass_context=True)
@@ -43,15 +35,7 @@ async def teamblack(ctx):
 btotal = float(0)
 
 
-#AWARDS POINTS FOR TEAM 1
-@bot.command(pass_context=True)
-async def whiteadd(ctx, arg):
-        await bot.say("Added " + (arg) + " point(s) to team white!")
-        global btotal
-        if btotal == 0:
-            btotal = float(arg)
-        else:
-            btotal += float(arg)
+
 
 #SHOWS POINTS OF TEAM 1
 @bot.command(pass_context=True)
