@@ -16,28 +16,10 @@ async def on_member_join(member):
     role = discord.utils.get(member.server.roles, name="Smol Beans")
     await bot.add_roles(member, role)
 
-#---------------------------------------------------------------------------
+
 #TEAM 1
 atotal = float(0)
 
-
-#AWARDS POINTS FOR TEAM 1
-@bot.command(pass_context=True)
-async def blackadd(ctx, arg):
-        await bot.say("Added " + (arg) + " point(s) to team black!")
-        global atotal
-        if atotal == 0:
-            atotal = float(arg)
-        else:
-            atotal += float(arg)
-
-#SHOWS POINTS OF TEAM 1
-@bot.command(pass_context=True)
-async def teamblack(ctx):
-    global atotal
-    await bot.say("This team has {} points.".format(atotal))
-
-#---------------------------------------------------------------------------
 
 #TEAM 2
 btotal = float(0)
